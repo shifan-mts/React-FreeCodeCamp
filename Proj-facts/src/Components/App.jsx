@@ -1,8 +1,10 @@
+import Main from "./Main1";
 import Nav from "./Nav"
 
 function App(){
     return <>
     <Nav/>
+    <Main/>
     </>
 }
 
