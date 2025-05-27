@@ -2,6 +2,7 @@ html, body {
     margin: 0;
 }
 
+
 .nav-bar{
 display: flex;
 justify-content: center;
@@ -22,9 +23,15 @@ header{
     color: white;
 }
 
-.card{
+
+.card-container{
     display: flex;
     justify-content: center;
+}
+
+.card{
+    display: flex;
+   
     margin: 40px 40px;
     width: 30rem;
     
@@ -33,6 +40,7 @@ header{
     height: 15rem;
     width: 10rem;
     border-radius: 6px;
+    object-fit: cover;
 }
 .card-content{
 
@@ -43,11 +51,29 @@ header{
     align-items: center;
     gap: 10px;
 }
+.card-location a{
+    color: rgb(56, 56, 56);
+}
+.card-location a.visited{
+    color: rgb(255, 0, 0);
+}
+
 .card-title{
     margin-top: 0;
     
+    
 }
 .date{
-    
+    font-weight: bold;
     padding: 7px 0;
+}
+.card-location h4 {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin-right: 12px;
+}
+.details {
+    line-height: 1.5;
+    font-size: 0.8rem;
+    
 }
