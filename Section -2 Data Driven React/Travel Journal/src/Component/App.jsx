@@ -10,12 +10,9 @@ const  entryc = data.map(
     function(n){
         return (
         <Entry
-            img = {n.img}
-            title = {n.title}
-            country = {n.country}
-            googleMapsLink = {n.googleMapsLink}
-            dates = {n.dates}
-            text = {n.text}
+            /* entry = {n} */
+            {...n}
+
         /> 
         )
     }
