@@ -7,7 +7,7 @@ body {
   font-family: Inter, sans-serif;
 }
 header{
-  height: 80px;
+  height: 20px;
   margin: 0px;
 }
 .nav-elements{
@@ -28,7 +28,9 @@ header{
  
   font-size: 2.7rem;
   font-weight: 300;
+  margin: 5% 0;
 }
+
 /**
 header box shadow code:
 */
