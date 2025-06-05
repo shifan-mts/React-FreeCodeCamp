@@ -7,6 +7,10 @@ body {
   font-family: Inter, sans-serif;
 }
 
+main{
+  padding: 30px 30px 10px;
+}
+
 .nav-elements{
   display: flex;
   align-items: center;
