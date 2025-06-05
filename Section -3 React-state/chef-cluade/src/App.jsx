@@ -1,14 +1,15 @@
 import Header from "./Components/Header";
-
-/**
- * Challenge: Build the Header component in a separate file
- * and render it here in the App component
- */
+import Main1 from "./Components/Main1.jsx";
 
 
  function App() {
   return (
-      <Header />
+    <>
+    
+     <Header />
+      <Main1 />
+    </>
+     
   
   )
 }
