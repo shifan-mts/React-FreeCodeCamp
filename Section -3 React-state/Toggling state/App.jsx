@@ -9,26 +9,12 @@ export default function App() {
      * - Display "Yes" if `isGoingOut` is `true`, "No" otherwise
      */
     let [going,goingOut] = useState(true);
-    let [permission,setPermission] = useState("Yes");
-    function handleSubmit(){
-        
-        if(going==true){
-            
-            goingOut(false);
-            setPermission("No");
-        }
-        else{
-         
-            goingOut(true);
-            setPermission("Yes");
-        }
-        
-    }
+    
 
     return (
         <main>
             <h1 className="title">Do I feel like going out tonight?</h1>
-            <button className="value" onClick={handleSubmit}>{permission}</button>
+            <button className="value" onClick={()=>{goingOut(!going)}}>{going ? "Yes" : "No"}</button>
         </main>
     )
 }

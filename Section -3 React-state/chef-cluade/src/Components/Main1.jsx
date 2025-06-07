@@ -1,5 +1,7 @@
+import { useState } from "react";
+
 function Main1(){
-    let ingredients = ["Chicken", "Oregano", "Tomatoes"]
+    let [ingredients,setIngredients] = useState([]);
 
     const ingredient = ingredients.map(n =>
         <li key={n}> {n} </li>
@@ -9,9 +11,8 @@ function Main1(){
         
         const formData = new FormData(event.currentTarget);
         let data = formData.get("ingrediant");
-        ingredients.push(data);
-        alert(ingredients);
-        alert("form submitted "+data);
+        setIngredients((t) => [...t,data]);
+        
     }
     
     return <>
