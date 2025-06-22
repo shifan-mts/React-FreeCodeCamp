@@ -1,20 +1,12 @@
 import { useEffect, useState } from "react"
 
 export default function Main() {
-   /**
-     * Challenge:
-     * Get an array of memes from the imgflip API as soon as
-     * this component renders for the first time.
-     * Check the imgflip documentation for the correct URL.
-     * Save the array of memes (not the whole response
-     * data) to state. (For this app, we'll randomly choose
-     * one of the memes from this array when the user clicks
-     * the "Get a new meme image" button, but we'll do that in
-     * a separate challenge.)
-     * 
-     * Hint: for now, don't try to use an async/await function.
-     * Instead, use `.then()` to resolve the promises
-     * from using `fetch`. We'll learn why after this challenge.
+  /**
+     * Challenge: Get a random image from the array of
+     * allMemes when the user clicks the button. Once
+     * you've gotten a random image from the array, make
+     * sure to write the code that will display that
+     * random meme image to the page.
      */
     
 
@@ -25,14 +17,18 @@ export default function Main() {
     })
 
     const [Imgs,setImgs] = useState()
+    
 
     useEffect(()=>{
 
         fetch("https://api.imgflip.com/get_memes")
         .then(res => res.json())
-        .then(data => setImgs(data.data.memes))
+        .then(data => {setImgs(data.data.memes)
+            /* console.log(data.data.memes[0].url) */
+    })
+        
     },[])
-    
+   
    function handleChange(event){
     const {name,value} = event.currentTarget
     setMeme(
@@ -43,6 +39,22 @@ export default function Main() {
             }
         )
     )
+   }
+
+   function changeMeme(event){
+    event.preventDefault()
+    let randomNo = Math.floor(Math.random() * 100)
+  setMeme(
+    (prev)=>(
+        {
+            ...prev,
+            imgUrl : Imgs[randomNo].url
+        })
+    
+
+  )
+
+   
    }
    
     return (
@@ -55,6 +67,7 @@ export default function Main() {
                         name="topText"
                         value={meme.topText}
                         onChange={handleChange}
+                        required
                     />
                 </label>
 
@@ -65,9 +78,16 @@ export default function Main() {
                         name="bottomText"
                         value = {meme.bottomText}
                         onChange={handleChange}
+                        required
                     />
                 </label>
-                <button>Get a new meme image 🖼</button>
+                <button 
+                onClick={changeMeme}
+                name="imgUrl"
+                
+                >
+                    Get a new meme image 🖼
+                </button>
             </form>
             <div className="meme">
                 <img src={meme.imgUrl} />
